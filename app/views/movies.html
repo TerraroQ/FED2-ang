@@ -1,0 +1,42 @@
+<div class="movieListWrapper active">
+
+	<div class="controls">
+		<input type="text" ng-model="search.title" placeholder="Zoek film" />
+		<label for="sortBy">Sort by</label>
+		<select id="sortBy" data-ng-model="descending">
+			<option value="true">Newest First</option>
+			<option value="false">Olderst First</option>
+		</select>
+	</div>
+
+	<div ng-show="loader.loading">
+		<div class="bubblingG">
+			<span id="bubblingG_1">
+			</span>
+			<span id="bubblingG_2">
+			</span>
+			<span id="bubblingG_3">
+			</span>
+		</div>
+	</div>
+
+	<div>
+		<ul>
+			<li ng-repeat="movie in movies | filter: search | orderBy:'release_date':descending | limitTo: viewLimit">
+
+				<h2><a href="#/movies/{{movie.id}}">{{movie.title}}</a></h2>
+				<p>{{movie.release_date | date: 'dd/MM/yy'}}</p>
+				<p>score: {{movie.reviewsAvg}}</p>
+				<p ng-repeat="genre in movie.genres"><a href="#/movies/genres/{{genre}}">{{genre}}</a></p>
+
+
+			</li>
+		</ul>
+	</div>
+
+	<button data-ng-click="viewMore(1)" data-ng-hide="viewLimit >= movies.length">View more</button>
+
+	<button data-ng-click="viewMore(-1)" data-ng-hide="viewLimit >= movies.length">View less</button>
+
+</div>
+
