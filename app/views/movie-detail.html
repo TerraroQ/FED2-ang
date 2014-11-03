@@ -1,33 +1,34 @@
-<div class="wrapper">
-
-	<div ng-show="loader.loading">
-		<div class="bubblingG">
-			<span id="bubblingG_1">
-			</span>
-			<span id="bubblingG_2">
-			</span>
-			<span id="bubblingG_3">
-			</span>
-		</div>
-	</div>
+<div class="contentblock">
 	<div class="movieWrapper">
+		<a href="#/movies">Terug naar overzicht</a>
 		<div ng-show="!showActions" ng-swipe-left="showActions = true" class="slideLeft">
-			<div class="at-view-slide-in-left at-view-slide-out-left">
-
-		<h1>{{movie.title}}</h1>
-		<img ng-src="{{movie.cover}}" alt="{{movie.title}}">
-		<p>{{movie.plot}}</p>
+			<div class="slide">
+				<h2>{{movie.title}}</h2>
+				<time><b>Release date:</b> {{movie.release_date}}</time>
+				<img ng-src="{{movie.cover}}" alt="{{movie.title}}">
+				<ul>
+					<li><h3>Genres:</h3></li>
+					<li ng-repeat="genre in movie.genres">{{genre}}</li>
+				</ul>
+				<h3>Plot:</h3>
+				<p>{{movie.plot}}</p>
+			</div>
 		</div>
-
-		</div>
-
 		<div ng-show="showActions" ng-swipe-right="showActions = false" class="slideRight">
 			<div class="slide">
-			<h2>Actors:</h2>
-			<ul ng-repeat="actor in movie.actors">
-				<li >{{actor.actor_name}}</li>
-				<li><img src="{{actor.url_photo}}" alt=""></li>
-			</ul>
+				<div class="director">
+					<h2>Director</h2>
+					<article ng-repeat="director in movie.directors">
+						<h3>{{director.name}}</h3>
+					</article>
+				</div>
+				<div class="actors">
+					<h2>Actors:</h2>
+					<article ng-repeat="actor in movie.actors">
+						<img src="{{actor.url_photo}}" alt="">
+						<h3>{{actor.actor_name}}</h3>
+					</article>
+				</div>
 			</div>
 		</div>
 	</div>
