@@ -23,5 +23,5 @@ FED2
 - Overzichtelijke structuur
 - Heeft minimale comments
 - DRY
-- Gebruik van taskrunner (met node)
+- Gebruik van taskrunner (met node) + bower
 - Minified js
