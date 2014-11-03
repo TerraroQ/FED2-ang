@@ -7,18 +7,21 @@ FED2
 ##CSS
 
 - CSS staat in CSS file en niet via JS
-- Responsive (foundation framework)
+- Responsive (flexbox)
+- Gebruik van SASS
 
 ##HTML
 
 - Semantisch
+- Modulair
 
 ##JS
 
-- Werkt
+- Angular
 - Testen voor aannemen
 - Logische naamgeving (camelcase)
 - Overzichtelijke structuur
 - Heeft minimale comments
 - DRY
 - Gebruik van taskrunner (met node)
+- Minified js
