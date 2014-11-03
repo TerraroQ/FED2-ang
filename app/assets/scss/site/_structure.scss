@@ -491,15 +491,15 @@ transform: translateY(-21px);
 }
 @media (max-width: 480px) {
 	.nav-button{
-		padding: 1em 2em;
+		padding: 1em;
 	}
 	.controls{
 	text-align: center;
 	}
-	// .contentblock{
-	// 	padding: 1em 0em;
-	// }
 	.block{
 		width: 100%;
 	}
+  .searchbar{
+    width: 250px;
+  }
 }
