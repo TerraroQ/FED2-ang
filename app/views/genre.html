@@ -1,0 +1,31 @@
+<div class="contentblock active">
+	<h2>Movies overview</h2>
+	<div class="controls">
+		<input type="text" class="searchbar" ng-model="search.title" placeholder="Zoek film" />
+		<div class="menu">
+			<input class="dropdowninput" type="checkbox" id="dropdownbox1"/>
+			<div class="dropdownbox">
+			    <label for="dropdownbox1">Selecteer genre</label>
+			    <nav ng-controller="MoviesController">
+				    <ul class="dropdown">
+				        <li ng-repeat="genre in genreList"><a ui-sref="moviesGenre({genre: genre})">{{genre}}</a></li>
+				    </ul>
+			    </nav>
+			</div>
+		</div>
+	</div>
+	<div class="moviesWrapper">
+		<section class="flex-container">
+			<article ng-repeat="movie in movies | filter: search | orderBy:'release_date':descending" class="block flex-item">
+				<h2>{{movie.title}}</h2>
+				<img ng-src="{{movie.cover}}" alt="{{movie.title}}">
+				<p class="plot">{{movie.simple_plot}}</p>
+				<p>Waardering: {{movie.reviewsAvg || 'Geen beoordeling'}}</p>
+				<p>{{movie.release_date | date: 'dd/MM/yy'}}</p>
+				<p ng-repeat="genre in movie.genres"><a ui-sref="moviesGenre({genre: genre})">{{genre}}</a></p>
+				<a href="#/movies/{{movie.id}}" class="button">Meer info</a>
+				<!-- <p ng-repeat="genre in movie.genres"><a href="#/movies/genres/{{genre}}">{{genre}}</a></p> -->
+			</article>
+		</section>
+	</div>
+</div>
